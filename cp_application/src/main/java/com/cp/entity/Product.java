@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Product {
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
@@ -14,8 +14,7 @@ public class Product {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;
-
-    // Getters and Setters
+	
     public Long getId() {
         return id;
     }
@@ -47,12 +46,4 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
-
-	public Product(Long id, String name, Double price, Category category) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.category = category;
-	}
 }
